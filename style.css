@@ -1,0 +1,267 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Figtree', sans-serif;
+    background-color: hsl(47, 88%, 63%);
+    color: hsl(0, 0%, 7%);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+/* ===== CUSTOM PROPERTIES ===== */
+:root {
+    --yellow: hsl(47, 88%, 63%);
+    --white: hsl(0, 0%, 100%);
+    --grey: hsl(0, 0%, 50%);
+    --black: hsl(0, 0%, 7%);
+    --shadow: 8px 8px 0 var(--black);
+    --shadow-hover: 16px 16px 0 var(--black);
+    --transition: all 0.3s ease;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.container {
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* ===== BLOG CARD ===== */
+.blog-card {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 1px solid var(--black);
+    box-shadow: var(--shadow);
+    max-width: 384px;
+    width: 100%;
+    padding: 1.5rem;
+    transition: var(--transition);
+    margin-bottom: 2rem;
+}
+
+.blog-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translate(-2px, -2px);
+}
+
+/* Card Image */
+.card-image {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Card Content */
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Category Badge */
+.category {
+    display: inline-block;
+    background-color: var(--yellow);
+    color: var(--black);
+    font-weight: 800;
+    font-size: 0.875rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    width: fit-content;
+}
+
+/* Publish Date */
+.publish-date {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--black);
+}
+
+/* Card Title */
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0.5rem 0;
+}
+
+.title-link {
+    color: var(--black);
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.title-link:hover {
+    color: var(--yellow);
+    cursor: pointer;
+}
+
+/* Card Description */
+.card-description {
+    color: var(--grey);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0.5rem 0;
+}
+
+/* Author Section */
+.author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.author-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-name {
+    font-size: 0.875rem;
+    font-weight: 800;
+    color: var(--black);
+}
+
+/* ===== ATTRIBUTION ===== */
+.attribution {
+    font-size: 0.75rem;
+    text-align: center;
+    color: var(--black);
+    padding: 1rem;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.attribution a:hover {
+    text-decoration: underline;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Mobile (375px) */
+@media (max-width: 375px) {
+    .blog-card {
+        max-width: 327px;
+        padding: 1.25rem;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+    }
+
+    .card-description {
+        font-size: 0.875rem;
+    }
+
+    .category,
+    .publish-date {
+        font-size: 0.75rem;
+    }
+}
+
+/* Tablet (768px) */
+@media (min-width: 768px) {
+    .blog-card {
+        max-width: 384px;
+    }
+}
+
+/* Desktop (1440px) */
+@media (min-width: 1440px) {
+    .blog-card {
+        max-width: 384px;
+    }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.blog-card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+
+    .blog-card,
+    .title-link {
+        transition: none;
+    }
+
+    .blog-card:hover {
+        transform: none;
+    }
+
+    .blog-card {
+        animation: none;
+    }
+}
+
+/* Focus styles for keyboard navigation */
+.title-link:focus,
+.author:focus-within {
+    outline: 2px solid var(--yellow);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    body {
+        background: white;
+    }
+
+    .blog-card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+
+    .attribution {
+        display: none;
+    }
+}
