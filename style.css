@@ -8,6 +8,8 @@
 
 html {
     font-size: 16px;
+    overflow: hidden;
+    height: 100%;
 }
 
 body {
@@ -15,11 +17,12 @@ body {
     background-color: hsl(47, 88%, 63%);
     color: hsl(0, 0%, 7%);
     line-height: 1.5;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 1.5rem;
+    overflow: hidden;
 }
 
 /* ===== CUSTOM PROPERTIES ===== */
@@ -42,6 +45,8 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
 }
 
 /* ===== BLOG CARD ===== */
@@ -54,7 +59,7 @@ body {
     width: 100%;
     padding: 1.5rem;
     transition: var(--transition);
-    margin-bottom: 2rem;
+    margin-bottom: 0;
 }
 
 .blog-card:hover {
@@ -159,6 +164,12 @@ body {
     text-align: center;
     color: var(--black);
     padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--yellow);
+    z-index: 10;
 }
 
 .attribution a {
